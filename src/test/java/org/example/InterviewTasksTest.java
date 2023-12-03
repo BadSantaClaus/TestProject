@@ -14,6 +14,7 @@ public class InterviewTasksTest {
     //Написать метод, на вход которого приходит массив строк. содержащих в том числе и хештеги - на выход надо выдать тоже массив,
     // но уникальных хештегов, отсортированных в обратном порядке.
     // {"Сегодня в #Москва хорошая погода", "А в #Питер идет #дождь", "Вчера тоже был в #Москва"}
+    // отсортировать по частоте встречаемых слов с хэштегом
     @DisplayName("Уникальные хэштеги")
     @Test
     public void test() {
@@ -38,7 +39,6 @@ public class InterviewTasksTest {
     @DisplayName("А как сделать так чтобы проверялась каждая дата в течении одного года?")
     @Test
     public void test2() {
-
         LocalDate start = LocalDate.of(2023, 1, 1);
         LocalDate end = start.plusYears(1);
         for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
@@ -60,8 +60,8 @@ public class InterviewTasksTest {
         char[] arr = s.toCharArray();
         List<Character> result = new ArrayList<>();
         int j = 0;
-        for (int i = arr.length; i > 0; i--) {
-            result.add(arr[i - 1]);
+        for (int i = arr.length - 1; i >= 0; i--) {
+            result.add(arr[i]);
             j++;
         }
         String f = result.stream()
@@ -111,4 +111,92 @@ public class InterviewTasksTest {
         System.out.println(result);
 
     }
+
+    @Test
+    public void test8() {
+        /**
+         * Дана таблица:
+         * Имя|Возраст|Должность|Зарплата
+         * Кирилл|26|Middle java dev|150000 руб
+         * Виталий|28|Senior java automation QA|2000$
+         * Александр|31|junior functional tester|50000 руб
+         * Дементий|35|dev-ops|1500$
+         *
+         * Данная таблица представлена в формате
+         * List<Map<String,String>>, где каждый элемент list - строка, key в map - название столбца,
+         * value в map - значение ячейки
+         *
+         * Задача:
+         *
+         * - вывести имена всех сотрудников, младше 30.
+         * - вывести имена всех сотрудников, получающих зарплату в рублях.
+         * - вывести средний возраст всех сотрудников.
+         */
+        String NAME = "Имя";
+        String AGE = "Возраст";
+        String JOB = "Должность";
+        String SALARY = "Зарплата";
+
+        List<Map<String, String>> list = new ArrayList<>();
+        Map<String, String> map1 = new HashMap<>();
+        map1.put(NAME, "Кирилл");
+        map1.put(AGE, "21");
+        map1.put(JOB, "Тестер");
+        map1.put(SALARY, "60000 руб.");
+
+        Map<String, String> map2 = new HashMap<>();
+        map2.put(NAME, "Роман");
+        map2.put(AGE, "30");
+        map2.put(JOB, "Автотестер");
+        map2.put(SALARY, "150000 $");
+
+        list.add(map1);
+        list.add(map2);
+
+        list.stream()
+                .filter(m -> Integer.parseInt(m.get(AGE)) < 30)
+                .forEach(System.out::println);
+
+        list.stream()
+                .filter(m -> Pattern.matches(".*\\$$", m.get(SALARY)))
+                .forEach(System.out::println);
+
+        long sum = list.stream()
+                .map(m -> Integer.parseInt(m.get(AGE)))
+                .reduce(0, Integer::sum);
+
+        System.out.println((double) sum / list.size());
+
+    }
+
+    /**
+     * Дан массив NxN. Напишите программу на Java которая находит минимальный
+     * элемент побочной диагонали, без учёта элемента пересечения главной и побочной диагонали.
+     * Для примера приведена матрица 5х5. Побочная диагональ выделена жирным, минимальный элемент побочной диагонали – красным и подчеркнут: 2
+     * 1	2	3	4	5
+     * 5	7	9	2	1
+     * 0	9	1	8	7
+     * 6	3	6	6	6
+     * 99 	100	-2	3	1
+     */
+    @Test
+    public void test9() {
+        int[][] array = {{1, 2, 3, 4, 5}, {5, 7, 9, 2, 1}, {0, 9, 1, 8, 7}, {6, 3, 6, 6, 6}, {99, 100, -2, 3, 1}};
+        List<Integer> list = new ArrayList<>();
+        int excluded = 0;
+        if (array.length % 2 != 0) {
+            excluded = (int) Math.ceil((double) array.length / 2);
+        }
+        int j = array.length - 1;
+        for (int[] ints : array) {
+            list.add(ints[j]);
+            j--;
+        }
+        if (excluded != 0) {
+            list.remove(excluded - 1);
+        }
+        list.sort(Comparator.naturalOrder());
+        System.out.println(list.get(0));
+    }
+
 }

@@ -6,6 +6,7 @@ import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
@@ -24,9 +25,9 @@ public class ValidationTest {
         try {
             schema.validate(jsonData);
         } catch (ValidationException e) {
-            System.out.println("schema validation failed");
             e.printStackTrace();
+            Assertions.assertTrue(false);
         }
-        System.out.println("schema validated successfully");
+
     }
 }
