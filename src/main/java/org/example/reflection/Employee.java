@@ -1,5 +1,6 @@
 package org.example.reflection;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,6 +28,16 @@ public class Employee {
 
     }
 
+    public Employee(String name, String department) {
+        this.name = name;
+        this.department = department;
+
+    }
+
+    public Employee(String name) {
+        this.name = name;
+    }
+
 //    public Employee(int id, String name, String department, double salary) {
 //        this.id = id;
 //        this.name = name;
@@ -46,9 +57,14 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employee employee)) return false;
-        return id == employee.id && Double.compare(salary, employee.salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(department, employee.department);
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Double.compare(salary, employee.salary) == 0;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(salary);
+    }
 }
 
