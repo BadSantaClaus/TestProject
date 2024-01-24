@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class UniqueHashTags {
+public class ReverseUniqueHashTags {
 
     //Написать метод, на вход которого приходит массив строк. содержащих в том числе и хештеги - на выход надо выдать тоже массив,
     // но уникальных хештегов, отсортированных в обратном порядке.
