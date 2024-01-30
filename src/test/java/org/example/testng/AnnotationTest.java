@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 public class AnnotationTest {
 
     @Test(expectedExceptions = NumberFormatException.class)
-    @ExportTest(name = "")
+    @ExportTest
     public void test() {
         System.out.println("test start");
         Integer.parseInt("One");

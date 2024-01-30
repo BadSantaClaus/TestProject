@@ -1,6 +1,7 @@
 package org.example.jupiter;
 
 import org.example.annotation.ExportTest;
+import org.example.annotation.ExportTest2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,7 @@ import org.junit.jupiter.api.TestInfo;
 public class AnnotationTest {
 
     @Test
-    @ExportTest(name = "")
+    @ExportTest
     public void test() {
         System.out.println("test start");
         NumberFormatException thrown = Assertions.assertThrows(NumberFormatException.class, () -> {

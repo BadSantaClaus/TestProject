@@ -2,6 +2,7 @@ package org.example;
 
 import lombok.SneakyThrows;
 import org.example.annotation.ExportTest;
+import org.example.annotation.ExportTest2;
 import org.testng.annotations.Test;
 
 
@@ -9,12 +10,12 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-@ExportTest(name = "annotated class")
+@ExportTest2(name = "annotated class")
 public class SimpleTest {
 
 
 
-    @ExportTest(name = "export method")
+    @ExportTest2(name = "export method")
     @SneakyThrows
     public static void test() {
         Class<?> clazz = ClassLoader.getSystemClassLoader()
@@ -24,7 +25,7 @@ public class SimpleTest {
         Method[] methods = clazz.getMethods();
         List<String> annotatedMethods = new ArrayList<>();
         for (Method method : methods) {
-            ExportTest annotation = method.getAnnotation(ExportTest.class);
+            ExportTest2 annotation = method.getAnnotation(ExportTest2.class);
             if (annotation != null) {
                 annotatedMethods.add(annotation.name());
             }
@@ -32,7 +33,7 @@ public class SimpleTest {
         annotatedMethods.forEach(System.out::println);
 
         Method methodByName = clazz.getMethod("test");
-        System.out.println(methodByName.getAnnotation(ExportTest.class));
+        System.out.println(methodByName.getAnnotation(ExportTest2.class));
     }
 
     @SneakyThrows
@@ -40,7 +41,7 @@ public class SimpleTest {
         Class<?> clazz = ClassLoader.getSystemClassLoader()
                 .loadClass("org.example.SimpleTest");
         Method methodByName = clazz.getMethod("test", String.class);
-        System.out.println(methodByName.getAnnotation(ExportTest.class));
+        System.out.println(methodByName.getAnnotation(ExportTest2.class));
     }
 
 
