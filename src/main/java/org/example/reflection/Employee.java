@@ -7,11 +7,14 @@ import lombok.ToString;
 
 import java.util.Objects;
 
+
 @ToString
 public class Employee {
 
     public int id;
 
+    @Setter
+    @Getter
     public String name;
     public String department;
 //    @Getter
@@ -66,5 +69,6 @@ public class Employee {
     public int hashCode() {
         return Objects.hash(salary);
     }
+
 }
 

@@ -1,0 +1,170 @@
+{
+  "rId" : "53b5bd7f-5e6e-4622-89ba-27ade9b401b2",
+  "userAgent" : "PostmanRuntime/7.29.3",
+  "ip" : "1.0.15.231",
+  "cbiRequest" : {
+    "tranRequest" : {
+      "parties" : {
+        "term" : {
+          "caps" : {
+            "icc" : false,
+            "keyEntry" : true,
+            "contactless" : false,
+            "magRead" : false,
+            "magWrite" : false,
+            "ocr" : false,
+            "singleTap" : false,
+            "barCode" : false,
+            "pin" : false,
+            "maxPinLen" : 4,
+            "signAnalysis" : false,
+            "cardCapture" : false,
+            "mpos" : false,
+            "mobile" : true,
+            "dsrp" : false,
+            "interactive" : false,
+            "goodsAuthOnly" : false
+          },
+          "owner" : {
+            "documents" : {
+              "document" : [ {
+                "kind" : "TaxNumber",
+                "value" : "1234567890"
+              } ]
+            },
+            "rid" : "00005060",
+            "mcc" : 5691,
+            "title" : "WWW.SHOP.RU",
+            "city" : "MOSCOW",
+            "country" : 643,
+            "zip" : "1234567890",
+            "ccyResidenceCountries" : [ ]
+          },
+          "total" : [ ],
+          "rid" : "00005060",
+          "type" : "Ecom",
+          "acquirerRid" : "66582793103",
+          "forwarderRid" : "70290240103",
+          "channelEncryption" : false,
+          "usePaymentTransitAcct" : false
+        },
+        "cust" : {
+          "token" : [ {
+            "card" : {
+              "auth" : {
+                "presence" : false,
+                "credentialCapturedForResults" : [ ]
+              },
+              "tds" : {
+                "networkType" : "MIR",
+                "condition" : "NonAuthenticated"
+              },
+              "pan" : "2200240000003246",
+              "expDate" : "2026-09-30T21:00:00.000+00:00",
+              "entryMode" : "ECommerce"
+            },
+            "kind" : "Card"
+          } ],
+          "auth" : {
+            "regTrustedMerchant" : false,
+            "personIdChecked" : false,
+            "signChecked" : false,
+            "photoChecked" : false,
+            "biometricsChecked" : false
+          },
+          "contractRid" : "cntrct0000001",
+          "presence" : false
+        }
+      },
+      "link" : [ ],
+      "match" : {
+        "storeToDoer" : [ ],
+        "linkageKind" : "Normal",
+        "checkForDuplicate" : false,
+        "key" : "1520C274090BD1734E772E2EC820478E50F6B048241991804376223376",
+        "rrn" : "490163498209393958",
+        "nrn" : "4325000107365330",
+        "acquirerRid" : "66582793103"
+      },
+      "moneys" : {
+        "clear" : {
+          "amt" : 1000,
+          "ccy" : 643,
+          "convRate" : 1,
+          "convDate" : "2024-12-16T21:00:00.000+00:00"
+        },
+        "cust" : {
+          "amt" : 1000,
+          "ccy" : 643
+        }
+      },
+      "networkSpecific" : {
+        "nspk" : {
+          "trn" : 4325000107365330,
+          "networkIdentifier" : "0001",
+          "cardProductId" : "MDB",
+          "posEntryMode" : "812",
+          "posData" : "1000500531234567890",
+          "actualEci" : "3",
+          "messageType" : 100,
+          "tranFraudIndicator" : "0000000000000000000000000000000000000000"
+        },
+        "inactiveReleaseFeatures" : [ ]
+      },
+      "refineRs" : [ ],
+      "userAttrs" : {
+        "paramValue" : [ {
+          "val" : "MIR",
+          "rid" : "MK_Inc_Channel"
+        }, {
+          "val" : "00",
+          "rid" : "MK_Inc_ProcCode"
+        }, {
+          "val" : "100",
+          "rid" : "MK_Inc_Type"
+        }, {
+          "val" : "YES",
+          "title" : "CERTINFO",
+          "rid" : "CERT"
+        } ],
+        "mode" : "SYNC",
+        "seq" : 0
+      },
+      "localTime" : "2025-01-15T15:43:08.956+03:00",
+      "originatorDay" : "2024-12-16T21:00:00.000+00:00",
+      "preprocessOnly" : false,
+      "rollbackOnResults" : [ ],
+      "rollbackOnAnyResult" : false,
+      "kind" : "Goods",
+      "lifePhase" : "Auth",
+      "isBackward" : false,
+      "isReversal" : false,
+      "isPartial" : false,
+      "isAdvice" : false,
+      "isMigration" : false,
+      "undoState" : "Normal",
+      "version" : "3.2.40.10.32"
+    },
+    "holdActions" : {
+      "action" : [ {
+        "holdId" : 729,
+        "holdKind" : "Auth",
+        "holdSign" : -1,
+        "actionKind" : 1,
+        "amtDelta" : 4500.0,
+        "origAmtDelta" : 4500.0,
+        "origCcy" : 643,
+        "accountId" : 64,
+        "accountNumber" : "cntrct0000001",
+        "accountCcy" : 643,
+        "accountContractId" : 49257,
+        "accountContractRid" : "cntrct0000001",
+        "accountClientId" : 28,
+        "accountClientRid" : "clnt0000001",
+        "accountPlanGuid" : "UXIPTQV7GBBAZGD3KNKJMCEWP4",
+        "accountPlanCode" : "004",
+        "accountPlanSubCode" : "001"
+      } ]
+    }
+  }
+}
